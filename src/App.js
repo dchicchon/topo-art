@@ -159,7 +159,6 @@ const App = () => {
         setPlaces={setPlaces}
         setContours={setContours}
       />
-      <div id='box'></div>
       <div ref={mapContainer} className="map-container"></div>
     </div>
   );

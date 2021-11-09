@@ -13,7 +13,8 @@ const Nav = (props) => {
     const toggleNav = (e) => {
         if (toggleNavRef.current.textContent === '<') {
             // anytime we hide the nav, be sure to hide everything
-            nav.current.style.left = '-15rem'
+
+            nav.current.style.left = window.innerWidth < 600 ? '-10rem' : '-15rem'
             lineColorRef.current.style.display = 'none'
             toggleNavRef.current.textContent = '>'
         } else {
@@ -111,19 +112,20 @@ const Nav = (props) => {
                     <a style={{ color: '#85ceff' }} href='https://github.com/dchicchon'>Daniel Chicchon</a>
                 </div>
             </div>
-            <span ref={toggleNavRef} onClick={toggleNav} id='toggle-nav' className='tab-click'>{'<'}</span>
-            <div ref={lineColorRef} className='option-widget'>
-                <h4>Line Color</h4>
-                <SketchPicker color={props.lineColor} onChangeComplete={(color) => handleColorChange(color, 'line-color')} />
-            </div>
-            <div ref={landColorRef} className='option-widget'>
-                <h4>Land Color</h4>
-                <SketchPicker color={props.landColor} onChangeComplete={(color) => handleColorChange(color, 'land-color')} />
-            </div>
-
-            <div ref={lineWidthRef} className='option-widget'>
-                <h4>Line Width</h4>
-                <input onChange={e => props.setLineWidth(parseFloat(e.target.value))} value={props.lineWidth} type='range' min='0.5' max='1.5' step='0.1' />
+            <div id='nav-widgets'>
+                <span ref={toggleNavRef} onClick={toggleNav} id='toggle-nav' className='tab-click'>{'<'}</span>
+                <div ref={lineColorRef} className='option-widget'>
+                    <h4>Line Color</h4>
+                    <SketchPicker color={props.lineColor} onChangeComplete={(color) => handleColorChange(color, 'line-color')} />
+                </div>
+                <div ref={landColorRef} className='option-widget'>
+                    <h4>Land Color</h4>
+                    <SketchPicker color={props.landColor} onChangeComplete={(color) => handleColorChange(color, 'land-color')} />
+                </div>
+                <div ref={lineWidthRef} className='option-widget'>
+                    <h4>Line Width</h4>
+                    <input onChange={e => props.setLineWidth(parseFloat(e.target.value))} value={props.lineWidth} type='range' min='0.5' max='1.5' step='0.1' />
+                </div>
             </div>
         </div>
     )
