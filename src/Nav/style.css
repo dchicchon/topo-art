@@ -1,4 +1,4 @@
-#nav {
+#topo-nav {
     position: fixed;
     display: flex;
     top: 0px;
@@ -10,6 +10,7 @@
 #nav-panel {
     width: 15rem;
     height: 100%;
+    overflow: auto;
     background-color: rgb(28, 35, 51);
 }
 #title {
@@ -26,21 +27,31 @@
     list-style-type: none;
     background-color: rgb(28, 35, 51);
 }
-#option-container {
+
+#docs-container {
+    background-color: rgb(40 50 72) !important;
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s, background 0.3s !important;
     padding: 0px !important;
 }
-#option-container:hover {
-    background-color: rgb(28, 35, 51) !important;
-    cursor: initial !important;
+
+#docs-container p {
+    padding: 5px 10px;
 }
+
+#option-container {
+    max-height: 0px;
+    overflow: hidden;
+    background-color: rgb(40 50 72) !important;
+    transition: max-height 0.5s, background 0.3s !important;
+    padding: 0px !important;
+}
+
 #option-list {
     list-style-type: none;
     padding: 0px;
     height: 100%;
-    background-color: rgb(54 67 97) !important;
 }
 #option-list li:hover {
     background-color: rgb(69 85 122) !important;
@@ -53,7 +64,6 @@
     background-color: rgb(47, 58, 85);
     cursor: pointer;
 }
-
 #nav-widgets {
     display: flex;
     flex-direction: column;
@@ -84,7 +94,7 @@
 .tab-click:hover {
     background-color: rgb(47, 58, 85);
 }
-#footer {
+#topo-footer {
     text-align: center;
     color: #85ceff;
 }

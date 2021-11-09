@@ -5,6 +5,7 @@ import './style.css'
 const Nav = (props) => {
     const nav = useRef(null)
     const toggleNavRef = useRef(null)
+    const docs = useRef(null)
     const options = useRef(null)
     const landColorRef = useRef(null)
     const lineColorRef = useRef(null)
@@ -24,6 +25,21 @@ const Nav = (props) => {
 
         }
     }
+
+    const toggleDocs = (e) => {
+        if (docs.current.style.maxHeight === '0px' || !docs.current.style.maxHeight) {
+            docs.current.style.maxHeight = '500px'
+        } else {
+            docs.current.style.maxHeight = '0px'
+        }
+    }
+    const toggleOptions = (e) => {
+        if (options.current.style.maxHeight === '0px' || !options.current.style.maxHeight) {
+            options.current.style.maxHeight = '500px'
+        } else {
+            options.current.style.maxHeight = '0px'
+        }
+    }
     const toggleLineColor = (e) => {
         if (lineColorRef.current.style.display === 'none' || !lineColorRef.current.style.display) {
             lineColorRef.current.style.display = 'block'
@@ -37,13 +53,6 @@ const Nav = (props) => {
         } else {
             lineWidthRef.current.style.display = 'none'
 
-        }
-    }
-    const toggleOptions = (e) => {
-        if (options.current.style.maxHeight === '0px' || !options.current.style.maxHeight) {
-            options.current.style.maxHeight = '500px'
-        } else {
-            options.current.style.maxHeight = '0px'
         }
     }
     const toggleLandColor = (e) => {
@@ -87,11 +96,16 @@ const Nav = (props) => {
 
     // Add functions for when we change any parameters
     return (
-        <div ref={nav} id='nav'>
+        <div ref={nav} id='topo-nav'>
             <div id='nav-panel'>
                 <h2 id='title'>TOPO</h2>
                 <ul id='nav-list'>
-                    <li>Documentation</li>
+                    <li onClick={toggleDocs}>Documentation</li>
+                    <li ref={docs} id='docs-container'>
+                        <p>Welcome to Topo! This is a map where you can create photos of
+                            contours on maps and edit the contour line colors and land color.
+                            Try editing this map using the options button below!</p>
+                    </li>
                     <li onClick={toggleOptions}>Options</li>
                     <li ref={options} id='option-container'>
                         <ul id='option-list'>
@@ -107,7 +121,7 @@ const Nav = (props) => {
                     <li>Back to Home</li>
 
                 </ul>
-                <div id='footer'>
+                <div id='topo-footer'>
                     <p>Created By: {' '}</p>
                     <a style={{ color: '#85ceff' }} href='https://github.com/dchicchon'>Daniel Chicchon</a>
                 </div>
