@@ -106,9 +106,6 @@ const App = () => {
       window.localStorage.setItem('lat', newMap.getCenter().lat.toFixed(4))
       window.localStorage.setItem('zoom', newMap.getZoom().toFixed(2))
     })
-    newMap.on('idle', () => {
-      // console.log("idle")
-    })
     setMap(newMap)
   }, []);
 
