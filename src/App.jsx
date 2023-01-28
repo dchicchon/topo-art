@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import Nav from './Nav'
+import Nav from './Nav/Nav'
 import "./App.css";
 import mapboxgl from "mapbox-gl";
 mapboxgl.accessToken =
@@ -144,19 +144,21 @@ const App = () => {
   }, [places])
 
   return (
-    <div id='main'>
-      <Nav
-        map={map}
-        landColor={landColor}
-        setLandColor={setLandColor}
-        lineColor={lineColor}
-        setLineColor={setLineColor}
-        lineWidth={lineWidth}
-        setLineWidth={setLineWidth}
-        setPlaces={setPlaces}
-        setContours={setContours}
-      />
-      <div ref={mapContainer} className="map-container"></div>
+    <div style={{ width: '100%', height: '100%' }}>
+      <div id='main'>
+        <Nav
+          map={map}
+          landColor={landColor}
+          setLandColor={setLandColor}
+          lineColor={lineColor}
+          setLineColor={setLineColor}
+          lineWidth={lineWidth}
+          setLineWidth={setLineWidth}
+          setPlaces={setPlaces}
+          setContours={setContours}
+        />
+        <div ref={mapContainer} className="map-container"></div>
+      </div>
     </div>
   );
 };
