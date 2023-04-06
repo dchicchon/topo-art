@@ -5,7 +5,9 @@
   "type": "module",
   "reactProject": {
     "ready": true,
-    "entry": "./src/App.jsx"
+    "entry": "./src/App.jsx",
+    "title": "Topo",
+    "description": "A mapbox app to find cool contour lines from the planet"
   },
   "dependencies": {
     "mapbox-gl": "^2.5.1",
@@ -18,8 +20,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "vite dev",
-    "build": "vite build",
-    "test": ""
+    "build": "vite build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,8 +43,6 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^3.0.1",
     "gh-pages": "^3.2.3",
-    "vite": "^4.0.4",
-    "vite-plugin-svgr": "^2.4.0",
-    "vite-tsconfig-paths": "^4.0.3"
+    "vite": "^4.0.4"
   }
 }

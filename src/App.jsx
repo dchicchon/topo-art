@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
+import mapboxgl from "mapbox-gl";
 import Nav from './Nav/Nav'
 import "./App.css";
-import mapboxgl from "mapbox-gl";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGNoaWNjaG9uIiwiYSI6ImNrMm5saGJsczB0emYzYm05dzV4c2lnMDMifQ.mHFtuW251o5kz5nKxKvc-A";
 
@@ -16,6 +16,8 @@ const App = () => {
 
   // initial setup of map
   useEffect(() => {
+
+    if (mapContainer.current.children.length !== 0) return;
     let lng = -70.9
     let lat = 42.35
     let zoom = 9;
@@ -36,13 +38,12 @@ const App = () => {
       zoom: zoom,
       preserveDrawingBuffer: true
     });
+    // we should make sure theres only 1 map thats created
     newMap.on('load', () => {
-
       newMap.addSource('places', {
         type: 'vector',
         url: 'mapbox://mapbox.mapbox-streets-v8'
       });
-
       newMap.addLayer({
         id: 'places',
         type: 'symbol',
@@ -144,22 +145,22 @@ const App = () => {
   }, [places])
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <div id='main'>
-        <Nav
-          map={map}
-          landColor={landColor}
-          setLandColor={setLandColor}
-          lineColor={lineColor}
-          setLineColor={setLineColor}
-          lineWidth={lineWidth}
-          setLineWidth={setLineWidth}
-          setPlaces={setPlaces}
-          setContours={setContours}
-        />
-        <div ref={mapContainer} className="map-container"></div>
-      </div>
+    // <div style={{ width: '100%', height: '100%' }}>
+    <div id='main'>
+      <Nav
+        map={map}
+        landColor={landColor}
+        setLandColor={setLandColor}
+        lineColor={lineColor}
+        setLineColor={setLineColor}
+        lineWidth={lineWidth}
+        setLineWidth={setLineWidth}
+        setPlaces={setPlaces}
+        setContours={setContours}
+      />
+      <div ref={mapContainer} id="map-container"></div>
     </div>
+    // </div>
   );
 };
 

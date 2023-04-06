@@ -1,7 +1,7 @@
 #topo-nav {
   display: flex;
   flex-grow: 1;
-  height: 100%;
+  /* height: 100%; */
   color: #85ceff;
   width: 10%;
   position: absolute; 

@@ -38,7 +38,7 @@ const Nav = ({ setPlaces, setLineWidth, setContours, setLineColor, setLandColor,
     const [currentWidget, setCurrentWidget] = useState('')
 
     useEffect((prevWidget) => {
-        console.log(prevWidget)
+        // console.log(prevWidget)
     }, [currentWidget])
 
     const setCurrentWidgetWrapper = (type) => {

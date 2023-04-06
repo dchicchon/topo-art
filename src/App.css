@@ -1,16 +1,16 @@
 #main {
   display: flex;
-  height: 100%;
+  height: 85%;
   width: 100%;
 }
 
-.map-container {
+#map-container {
   height: 100%;
   flex-grow: 2;
 }
 
 .mapboxgl-canvas {
-    width: 100% !important;
+    width: 110% !important;
 }
 
 .mapboxgl-control-container {
