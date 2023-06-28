@@ -3,12 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "reactProject": {
-    "ready": true,
-    "entry": "./src/App.jsx",
-    "title": "Topo",
-    "description": "A mapbox app to find cool contour lines from the planet"
-  },
   "dependencies": {
     "mapbox-gl": "^2.5.1",
     "react": "^17.0.2",
